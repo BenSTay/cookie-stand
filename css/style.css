@@ -1,0 +1,23 @@
+/* Palette Generated at paletton.com */
+
+.color-primary-0 { color: #6B75C5 }	/* Main Primary color */
+.color-primary-1 { color: #DEE1F9 }
+.color-primary-2 { color: #A0A8E2 }
+.color-primary-3 { color: #444FA6 }
+.color-primary-4 { color: #232F88 }
+
+.color-secondary-1-0 { color: #8866C3 }	/* Main Secondary color (1) */
+.color-secondary-1-1 { color: #E7DDF9 }
+.color-secondary-1-2 { color: #B69DE2 }
+.color-secondary-1-3 { color: #643FA5 }
+.color-secondary-1-4 { color: #451F86 }
+
+.color-secondary-2-0 { color: #5D9CBA }	/* Main Secondary color (2) */
+.color-secondary-2-1 { color: #DAEEF8 }
+.color-secondary-2-2 { color: #96C6DD }
+.color-secondary-2-3 { color: #367899 }
+.color-secondary-2-4 { color: #185C7D }
+
+body {
+  background-color: #E7DDF9;
+}
