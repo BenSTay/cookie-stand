@@ -29,7 +29,7 @@ var firstAndPike = {
       if (i < 12) {
         amPM = 'am: ';
       } else {
-        amPM = 'am: ';
+        amPM = 'pm: ';
       }
       if (i > 12) {
         hourNumber = i - 12;
@@ -82,7 +82,7 @@ var seaTacAirport = {
       if (i < 12) {
         amPM = 'am: ';
       } else {
-        amPM = 'am: ';
+        amPM = 'pm: ';
       }
       if (i > 12) {
         hourNumber = i - 12;
@@ -135,7 +135,7 @@ var seattleCenter = {
       if (i < 12) {
         amPM = 'am: ';
       } else {
-        amPM = 'am: ';
+        amPM = 'pm: ';
       }
       if (i > 12) {
         hourNumber = i - 12;
@@ -188,7 +188,7 @@ var capitolHill = {
       if (i < 12) {
         amPM = 'am: ';
       } else {
-        amPM = 'am: ';
+        amPM = 'pm: ';
       }
       if (i > 12) {
         hourNumber = i - 12;
@@ -241,7 +241,7 @@ var alki = {
       if (i < 12) {
         amPM = 'am: ';
       } else {
-        amPM = 'am: ';
+        amPM = 'pm: ';
       }
       if (i > 12) {
         hourNumber = i - 12;
