@@ -1,5 +1,67 @@
 'use strict';
 
+//Function to calculate the total sales at all stores for a given hour.
+var hourSum = function(objArray,pos) {
+  var sum = 0;
+  for (var i of objArray) {
+    sum += i.cookiesSold[pos][1];
+  }
+  return sum;
+};
+
+//Function to render the header to the website.
+var renderHead = function(obj) {
+  var table = document.getElementById('salestable');
+
+  var head = document.createElement('tr');
+  table.appendChild(head);
+
+  var newElement = document.createElement('th');
+  head.appendChild(newElement);
+
+  for (var i of obj.cookiesSold) {
+    newElement = document.createElement('th');
+    newElement.textContent = i[0];
+    head.appendChild(newElement);
+  }
+};
+
+//Function to render one row of the body of the website.
+var renderBody = function(obj) {
+  var table = document.getElementById('salestable');
+  var row = document.createElement('tr');
+  table.appendChild(row);
+
+  var head = document.createElement('th');
+  head.textContent = obj.name;
+  row.appendChild(head);
+
+  var newElement;
+  for (var i of obj.cookiesSold) {
+    newElement = document.createElement('td');
+    newElement.textContent = i[1];
+    row.appendChild(newElement);
+  }
+};
+
+//Function to render the footer of the body of the website.
+var renderFoot = function(objArray) {
+  var table = document.getElementById('salestable');
+  var row = document.createElement('tr');
+  table.appendChild(row);
+
+  var head = document.createElement('th');
+  head.textContent = 'Total';
+  row.appendChild(head);
+
+  var newElement;
+  for (var i = 0; i < objArray[0].cookiesSold.length; i++) {
+    newElement = document.createElement('td');
+    newElement.textContent = hourSum(objArray,i);
+    row.appendChild(newElement);
+  }
+};
+
 //Constructor for CookieStore objects.
 function CookieStore(name, minCustomers, maxCustomers, averageCookies, openHour, closeHour) {
   this.name = name;
@@ -18,10 +80,10 @@ CookieStore.prototype.simulateSales = function() {
 
   for (var i = this.openHour; i <= this.closeHour; i++) {
     hourNum = i;
-    amPM = "am";
+    amPM = 'am';
 
     if (i >= 12) {
-      amPM = "pm";
+      amPM = 'pm';
 
       if (i > 12){
         hourNum -= 12;
@@ -33,39 +95,31 @@ CookieStore.prototype.simulateSales = function() {
     this.cookiesSold.push([hourNum + amPM, cookiesPerHour]);
   }
   this.cookiesSold.push(['Total',totalSales]);
-}
+};
 
-//Renders the sales figures to the webpage.
-CookieStore.prototype.renderSales = function() {
-  var box = document.createElement('span');
-  box.className = 'salesbox';
-  document.body.appendChild(box);
+//Creates five CookieStore instances.
+var firstAndPike = new CookieStore('First & Pike', 23, 65, 6.3, 6, 20);
+var seaTacAirport = new CookieStore('SeaTac Airport', 3, 24, 1.2, 6, 20);
+var seattleCenter = new CookieStore('Seattle Center', 11, 38, 3.7, 6, 20);
+var capitolHill = new CookieStore('Capitol Hill', 20, 30, 2.3, 6, 20);
+var alki = new CookieStore('Alki', 2, 16, 4.6, 6, 20);
 
-  var heading = document.createElement('h2');
-  heading.textContent = this.name;
-  box.appendChild(heading);
 
-  var list = document.createElement('ul');
-  box.appendChild(list);
+//Stores all of the CookieStores in an array.
+var stores = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
 
-  for(var i of this.cookiesSold) {
-    var item = document.createElement('li')
-    item.textContent = i[0] + ': ' + i[1] + ' cookies'
-    list.appendChild(item);
-  }
-}
-
-//Stores all of the CookieStores in an array
-var stores = [
-  new CookieStore('First & Pike', 23, 65, 6.3, 6, 20),
-  new CookieStore('SeaTac Airport', 3, 24, 1.2, 6, 20),
-  new CookieStore('Seattle Center', 11, 38, 3.7, 6, 20),
-  new CookieStore('Capitol Hill', 20, 30, 2.3, 6, 20),
-  new CookieStore('Alki', 2, 16, 4.6, 6, 20)
-];
-
-//Simulates and renders the sales for each CookieStore in the stores array.
+//Simulates for each CookieStore in the stores array.
 for (var i of stores) {
   i.simulateSales();
-  i.renderSales();
 }
+
+//Renders the head of the table.
+renderHead(alki);
+
+//Renders the body of the table.
+for (i of stores) {
+  renderBody(i);
+}
+
+//Renders the foot of the table.
+renderFoot(stores);
