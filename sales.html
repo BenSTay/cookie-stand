@@ -13,13 +13,13 @@
       <h2>New Store:</h2>
       <fieldset>
         <label for="name-input">Store Name:</label>
-        <input type="text" id="name-input" name="name"><br>
+        <input type="text" id="name-input" name="name" required><br>
         <label for="min-input">Minimum Customers/Hour</label>
-        <input type="text" id="min-input" name="minCustomers"><br>
+        <input type="number" id="min-input" name="minCustomers" required step="1" min="0" max="100"><br>
         <label for="max-input">Maximum Customers/Hour</label>
-        <input type="text" id="max-input" name="maxCustomers"><br>
+        <input type="number" id="max-input" name="maxCustomers" required step="1" min="0" max="100"><br>
         <label for="average-input">Average Cookies/Sale</label>
-        <input type="text" id="average-input" name="averageCookies"><br>
+        <input type="number" id="average-input" name="averageCookies" required step="any" min="0" max="100"><br>
         <input type="submit" id="submit-store-form">
       </fieldset>
     </form>
