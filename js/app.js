@@ -4,6 +4,7 @@
 var stores = [];
 var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm',
   '2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
+var salesTable = document.getElementById('salestable');
 
 //Function to calculate the total sales at all stores for a given hour.
 var hourSum = function(storeArray) {
@@ -27,14 +28,13 @@ function newEl(tag, content) {
 }
 
 function renderTable(storeArray) {
-  var salesTable = document.getElementById('salestable');
-  renderHead(salesTable);
-  renderBody(salesTable, storeArray);
-  renderFoot(salesTable, storeArray);
+  renderHead();
+  renderBody(storeArray);
+  renderFoot(storeArray);
 }
 
 //Function to render the header to the website.
-function renderHead(salesTable) {
+function renderHead() {
   var tableHead = document.createElement('thead');
   tableHead.appendChild(newEl('th',''));
   for (var i of hours) {
@@ -45,8 +45,9 @@ function renderHead(salesTable) {
 }
 
 //Function to render one row of the body of the website.
-function renderBody(salesTable, storeArray) {
+function renderBody(storeArray) {
   var tableBody = document.createElement('tbody');
+  tableBody.id = 'body';
   for (var i of storeArray){
     i.renderRow(tableBody);
   }
@@ -54,8 +55,9 @@ function renderBody(salesTable, storeArray) {
 }
 
 //Function to render the footer of the body of the website.
-function renderFoot(salesTable, storeArray) {
+function renderFoot(storeArray) {
   var tableFoot = document.createElement('tfoot');
+  tableFoot.id = 'foot';
   tableFoot.appendChild(newEl('th','Total'));
   for (var i of hourSum(storeArray)) {
     tableFoot.appendChild(newEl('td',i));
@@ -103,3 +105,19 @@ new CookieStore('Capitol Hill', 20, 30, 2.3);
 new CookieStore('Alki', 2, 16, 4.6, 6, 20);
 
 renderTable(stores);
+
+function addNewStore(e){
+  e.preventDefault();
+  var name = e.target.name.value;
+  var minCustomers = parseInt(e.target.minCustomers.value);
+  var maxCustomers = parseInt(e.target.maxCustomers.value);
+  var averageCookies = parseFloat(e.target.averageCookies.value);
+  var newStore = new CookieStore(name, minCustomers, maxCustomers, averageCookies);
+  salesTable.removeChild(document.getElementById('foot'));
+  newStore.renderRow(document.getElementById('body'));
+  renderFoot(stores);
+  e.target.reset();
+}
+
+var newStoreForm = document.getElementById('new-store-form');
+newStoreForm.addEventListener('submit', addNewStore);
