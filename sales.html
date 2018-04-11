@@ -9,6 +9,20 @@
   <body>
     <h1><a href="index.html"><img src = "img/salmon.png" alt="Illustration of a Salmon" height="72px"/></a>Sales</h1>
     <table id="salestable"></table>
+    <form id="new-store-form">
+      <h2>New Store:</h2>
+      <fieldset>
+        <label for="name-input">Store Name:</label>
+        <input type="text" id="name-input" name="name" required><br>
+        <label for="min-input">Minimum Customers/Hour</label>
+        <input type="number" id="min-input" name="minCustomers" required step="1" min="0" max="100"><br>
+        <label for="max-input">Maximum Customers/Hour</label>
+        <input type="number" id="max-input" name="maxCustomers" required step="1" min="0" max="100"><br>
+        <label for="average-input">Average Cookies/Sale</label>
+        <input type="number" id="average-input" name="averageCookies" required step="any" min="0" max="100"><br>
+        <input type="submit" id="submit-store-form">
+      </fieldset>
+    </form>
     <script src="js/app.js"></script>
   </body>
 </html>
