@@ -1,5 +1,8 @@
 'use strict';
 
+//Stores all of the CookieStores in an array.
+var stores = [];
+
 //Function to calculate the total sales at all stores for a given hour.
 var hourSum = function(objArray,pos) {
   var sum = 0;
@@ -71,6 +74,8 @@ function CookieStore(name, minCustomers, maxCustomers, averageCookies, openHour,
   this.openHour = openHour;
   this.closeHour = closeHour;
   this.cookiesSold = [];
+  stores.push(this);
+  this.simulateSales();
 }
 
 //Populates the cookiesSold array with times and sales figures.
@@ -98,26 +103,17 @@ CookieStore.prototype.simulateSales = function() {
 };
 
 //Creates five CookieStore instances.
-var firstAndPike = new CookieStore('First & Pike', 23, 65, 6.3, 6, 20);
-var seaTacAirport = new CookieStore('SeaTac Airport', 3, 24, 1.2, 6, 20);
-var seattleCenter = new CookieStore('Seattle Center', 11, 38, 3.7, 6, 20);
-var capitolHill = new CookieStore('Capitol Hill', 20, 30, 2.3, 6, 20);
-var alki = new CookieStore('Alki', 2, 16, 4.6, 6, 20);
-
-
-//Stores all of the CookieStores in an array.
-var stores = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
-
-//Simulates for each CookieStore in the stores array.
-for (var i of stores) {
-  i.simulateSales();
-}
+new CookieStore('First & Pike', 23, 65, 6.3, 6, 20);
+new CookieStore('SeaTac Airport', 3, 24, 1.2, 6, 20);
+new CookieStore('Seattle Center', 11, 38, 3.7, 6, 20);
+new CookieStore('Capitol Hill', 20, 30, 2.3, 6, 20);
+new CookieStore('Alki', 2, 16, 4.6, 6, 20);
 
 //Renders the head of the table.
-renderHead(alki);
+renderHead(stores[0]);
 
 //Renders the body of the table.
-for (i of stores) {
+for (var i of stores) {
   renderBody(i);
 }
 
