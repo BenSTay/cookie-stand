@@ -15,9 +15,9 @@ function addNewStore(e){
   e.preventDefault();
 
   var name = e.target.name.value;
-  var minCustomers = e.target.minCustomers.value;
-  var maxCustomers = e.target.maxCustomers.value;
-  var averageCookies = e.target.averageCookies.value;
+  var minCustomers = parseInt(e.target.minCustomers.value);
+  var maxCustomers = parseInt(e.target.maxCustomers.value);
+  var averageCookies = parseFloat(e.target.averageCookies.value);
 
   if(minCustomers > maxCustomers){
     alert('Error: Minimum customers cannot be greater than the Maximum customers!');
