@@ -97,10 +97,6 @@ table {
   border-radius: 20px;
 }
 
-table tr:nth-child(even) {
-  background-color: #DAEEF8;
-}
-
 th {
   font-family: 'Concert One';
   padding-bottom: 1%;
@@ -116,29 +112,4 @@ td {
   border-right: transparent;
   border-width: 1px;
   border-color: #185C7D;
-}
-
-tr:first-child th {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #185C7D;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
-}
-
-th:first-child {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #185C7D;
-  border-left: transparent;
-  border-bottom: transparent;
-}
-
-tr th:nth-child(even) {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #185C7D;
-  border-top: transparent;
-  border-bottom: transparent;
 }
