@@ -45,11 +45,17 @@ h1 a img {
 }
 
 p {
+  margin-top: 10px;
+  margin-left: 5%;
+  width: 50%;
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
-  margin: 5%;
   color: #451F86;
   line-height: 1.25em;
+  background: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url("/img/fish.jpg");
+  border-radius: 20px;
+  background-size: 75%;
+  background-position: center;
 }
 
 span {
