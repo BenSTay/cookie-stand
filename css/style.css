@@ -1,23 +1,3 @@
-/* Palette Generated at paletton.com */
-
-.color-primary-0 { color: #6B75C5 }	/* Main Primary color */
-.color-primary-1 { color: #DEE1F9 }
-.color-primary-2 { color: #A0A8E2 }
-.color-primary-3 { color: #444FA6 }
-.color-primary-4 { color: #232F88 }
-
-.color-secondary-1-0 { color: #8866C3 }	/* Main Secondary color (1) */
-.color-secondary-1-1 { color: #E7DDF9 }
-.color-secondary-1-2 { color: #B69DE2 }
-.color-secondary-1-3 { color: #643FA5 }
-.color-secondary-1-4 { color: #451F86 }
-
-.color-secondary-2-0 { color: #5D9CBA }	/* Main Secondary color (2) */
-.color-secondary-2-1 { color: #DAEEF8 }
-.color-secondary-2-2 { color: #96C6DD }
-.color-secondary-2-3 { color: #367899 }
-.color-secondary-2-4 { color: #185C7D }
-
 body {
   font-size: 24px;
   background-color: #E7DDF9;
@@ -52,7 +32,7 @@ p {
   text-align: center;
   color: #451F86;
   line-height: 1.25em;
-  background: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url("/img/fish.jpg");
+  background: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url("./img/fish.jpg");
   border-radius: 20px;
   background-size: 75%;
   background-position: center;
@@ -69,7 +49,7 @@ span {
 }
 
 #locations {
-  background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url("/img/frosted-cookie.jpg");
+  background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url("./img/frosted-cookie.jpg");
   background-size: 150%;
   margin-bottom: 20px;
   position: absolute;
@@ -79,7 +59,7 @@ span {
 }
 
 #contact {
-  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),  url("/img/family.jpg");
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),  url("./img/family.jpg");
   background-position: center;
   background-size: 150%;
   position: absolute;
@@ -91,7 +71,7 @@ span {
 } 
 
 #hours {
-  background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),  url("/img/cutter.jpeg");
+  background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),  url("./img/cutter.jpeg");
   background-size: 125%;
   background-position: center;
   position: absolute;
